@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book Borrowing System</title>
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <div><p class="eyebrow">Library management</p><h1>Book Borrowing System</h1></div>
+      <button id="logout" class="secondary hidden">Log out</button>
+    </header>
+
+    <section id="login-card" class="card login-card">
+      <h2>Admin login</h2>
+      <p>Sign in with the account you registered through the API.</p>
+      <form id="login-form" class="form-grid">
+        <label>Username<input id="username" required autocomplete="username"></label>
+        <label>Password<input id="password" type="password" required autocomplete="current-password"></label>
+        <button>Log in</button>
+      </form>
+      <p id="login-help" class="hint">No account yet? Register it using the API once, then return here.</p>
+    </section>
+
+    <section id="app" class="hidden">
+      <p id="welcome" class="welcome"></p>
+      <p id="notice" class="notice hidden" role="status"></p>
+
+      <section class="stats">
+        <article class="card"><span>Active borrows</span><strong id="active-count">—</strong></article>
+        <article class="card"><span>Overdue books</span><strong id="overdue-count">—</strong></article>
+        <article class="card"><span>Recorded fines</span><strong id="fine-count">—</strong></article>
+      </section>
+
+      <section class="two-columns">
+        <article class="card"><h2>Add a book</h2><form id="book-form" class="form-grid compact">
+          <label>Title<input name="title" required></label><label>Author<input name="author" required></label>
+          <label>ISBN<input name="isbn"></label><label>Copies<input name="total_copies" type="number" min="0" value="1" required></label>
+          <button>Add book</button>
+        </form></article>
+        <article class="card"><h2>Add a borrower</h2><form id="borrower-form" class="form-grid compact">
+          <label>Name<input name="name" required></label><label>Email<input name="email" type="email" required></label>
+          <label>Phone<input name="phone"></label><span></span><button>Add borrower</button>
+        </form></article>
+      </section>
+
+      <section class="two-columns">
+        <article class="card"><h2>Borrow a book</h2><form id="borrow-form" class="form-grid compact">
+          <label>Book<select id="borrow-book" name="book_id" required></select></label>
+          <label>Borrower<select id="borrower" name="borrower_id" required></select></label>
+          <label>Due date<input name="due_at" type="datetime-local" required></label><span></span><button>Record borrowing</button>
+        </form></article>
+        <article class="card"><h2>Overdue items</h2><div id="overdue-list" class="small-list">No overdue books.</div></article>
+      </section>
+
+      <section class="card"><div class="section-heading"><h2>Books</h2><button class="secondary refresh">Refresh</button></div><div class="table-wrap"><table><thead><tr><th>Title</th><th>Author</th><th>ISBN</th><th>Available</th></tr></thead><tbody id="books"></tbody></table></div></section>
+      <section class="card"><div class="section-heading"><h2>Borrowing records</h2><button class="secondary refresh">Refresh</button></div><div class="table-wrap"><table><thead><tr><th>Book</th><th>Borrower</th><th>Due</th><th>Status</th><th></th></tr></thead><tbody id="borrows"></tbody></table></div></section>
+    </section>
+  </main>
+  <script src="dashboard.js"></script>
+</body>
+</html>

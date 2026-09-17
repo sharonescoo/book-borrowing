@@ -1,0 +1,8 @@
+[project]
+name = "starter-project"
+version = "0.1.0"
+description = "FastAPI book borrowing backend using PostgreSQL, MongoDB, Jinja2, and JWT authentication"
+requires-python = ">=3.12"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]

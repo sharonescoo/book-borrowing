@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="space-y-6">
+  <div class="bg-white rounded-xl shadow p-6">
+    <h1 class="text-3xl font-bold">Dashboard</h1>
+    <p class="mt-2 text-slate-600">FastAPI + PostgreSQL + Mongo + Gemini book borrowing console</p>
+  </div>
+
+  <div class="grid md:grid-cols-3 gap-4">
+    <div class="bg-white rounded-xl shadow p-6">
+      <p class="text-sm text-slate-500">API Status</p>
+      <h2 class="text-2xl font-bold mt-2">Healthy</h2>
+    </div>
+    <div class="bg-white rounded-xl shadow p-6">
+      <p class="text-sm text-slate-500">DB</p>
+      <h2 class="text-2xl font-bold mt-2">PostgreSQL</h2>
+    </div>
+    <div class="bg-white rounded-xl shadow p-6">
+      <p class="text-sm text-slate-500">AI</p>
+      <h2 class="text-2xl font-bold mt-2">Gemini 2.5 Flash</h2>
+    </div>
+  </div>
+</section>
+{% endblock %}
